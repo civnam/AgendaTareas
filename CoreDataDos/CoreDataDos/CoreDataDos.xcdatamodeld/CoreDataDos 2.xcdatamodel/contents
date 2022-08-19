@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Fotos" representedClassName="Fotos" syncable="YES" codeGenerationType="class">
+        <attribute name="foto" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="idTarea" optional="YES" attributeType="String"/>
+        <relationship name="origen" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tareas" inverseName="relationToFotos" inverseEntity="Tareas"/>
+    </entity>
+    <entity name="Metas" representedClassName="Metas" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="titulo" optional="YES" attributeType="String"/>
+        <relationship name="relationToTareas" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Tareas" inverseName="origen" inverseEntity="Tareas"/>
+    </entity>
+    <entity name="Tareas" representedClassName="Tareas" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="idMeta" optional="YES" attributeType="String"/>
+        <attribute name="tarea" optional="YES" attributeType="String"/>
+        <relationship name="origen" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Metas" inverseName="relationToTareas" inverseEntity="Metas"/>
+        <relationship name="relationToFotos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Fotos" inverseName="origen" inverseEntity="Fotos"/>
+    </entity>
+    <elements>
+        <element name="Metas" positionX="-349.2199096679688" positionY="44.18630981445312" width="128" height="89"/>
+        <element name="Tareas" positionX="-147.7233276367188" positionY="-32.01324462890625" width="128" height="104"/>
+        <element name="Fotos" positionX="77.4010009765625" positionY="-133.0854644775391" width="128" height="74"/>
+    </elements>
+</model>
